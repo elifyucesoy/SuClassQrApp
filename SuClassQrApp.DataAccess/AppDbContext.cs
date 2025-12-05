@@ -18,17 +18,7 @@ namespace SuClassQrApp.DataAccess
             : base(options)
         {
         }
-        public AppDbContext CreateDbContext(string[] args)
-        {
-            var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
 
-            var connectionString =
-                "Server=LAPTOP-FQOV39PF\\SQLEXPRESS;Database=SuClassQrDb;Trusted_Connection=True;TrustServerCertificate=True;";
-
-            optionsBuilder.UseSqlServer(connectionString);
-
-            return new AppDbContext(optionsBuilder.Options);
-        }
         public DbSet<User> Users { get; set; }
         public DbSet<Event> Events { get; set; }
         public DbSet<Attendance> Attendances { get; set; }
@@ -59,22 +49,5 @@ namespace SuClassQrApp.DataAccess
                 .OnDelete(DeleteBehavior.Cascade);
         }
 
-    }
-}
-namespace SuClassQrApp.DataAccess
-{
-    public class AppDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
-    {
-        public AppDbContext CreateDbContext(string[] args)
-        {
-            var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
-
-            var connectionString =
-                "Server=LAPTOP-FQOV39PF\\SQLEXPRESS;Database=SuClassQrDb;Trusted_Connection=True;TrustServerCertificate=True;";
-
-            optionsBuilder.UseSqlServer(connectionString);
-
-            return new AppDbContext(optionsBuilder.Options);
-        }
     }
 }

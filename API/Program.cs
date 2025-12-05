@@ -22,7 +22,7 @@ namespace API
 
             // Database context
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
-                ?? "Server=LAPTOP-FQOV39PF\\SQLEXPRESS;Database=SuClassQrDb;Trusted_Connection=True;TrustServerCertificate=True;";
+                ?? "Server=.;Database=SuClassQrDb;Trusted_Connection=True;TrustServerCertificate=True;";
 
             builder.Services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(connectionString));
